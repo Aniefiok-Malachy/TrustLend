@@ -17,8 +17,8 @@ const WALLETCONNECT_PROJECT_ID = "b03066e264e7743ea510fd0da27f3ccf";
 const APP_METADATA = {
   name: "TrustLend",
   description: "Decentralized, uncollateralized peer-to-peer lending pool",
-  url: "http://127.0.0.1:5500", // must match the deployed origin
-  icons: ["https://your-trustlend-domain.example/icon.png"],
+  url: "https://trustlend-nine.vercel.app/", // must match the deployed origin
+  icons: ["https://trustlend-nine.vercel.app/icon.png"],
 };
 
 // Address Truffle prints after a successful migration, e.g. "0x1234...".
