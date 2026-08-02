@@ -1,0 +1,15 @@
+{
+  "name": "trustlend-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TrustLend frontend — static HTML/CSS/JS, wallet layer powered by Reown AppKit (WalletConnect v2) + ethers v5",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "@reown/appkit": "^1.6.0",
+    "@reown/appkit-adapter-ethers5": "^1.6.0"
+  }
+}

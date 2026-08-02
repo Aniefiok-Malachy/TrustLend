@@ -1,0 +1,19 @@
+{
+  "name": "trustlend-contract",
+  "version": "1.0.0",
+  "description": "TrustLend - revolving, uncollateralized P2P loan pool smart contract (BNB Smart Chain)",
+  "main": "truffle-config.js",
+  "scripts": {
+    "compile": "truffle compile",
+    "migrate:testnet": "truffle migrate --network testnet",
+    "migrate:mainnet": "truffle migrate --network bsc",
+    "console:testnet": "truffle console --network testnet"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.7.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "truffle": "^5.11.5"
+  }
+}

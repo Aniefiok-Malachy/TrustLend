@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TrustLend : Decentralized P2P Lending</title>
+<meta name="description" content="TrustLend: a revolving, uncollateralized P2P loan pool on BNB Smart Chain." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-field" aria-hidden="true">
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-purple"></div>
+  </div>
+
+  <!-- GLASS NAVBAR -->
+  <header class="navbar">
+    <div class="wrap navbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" width="26" height="26">
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--blue)"/>
+                <stop offset="1" stop-color="var(--purple)"/>
+              </linearGradient>
+            </defs>
+            <circle cx="14" cy="14" r="12" fill="none" stroke="url(#brandGrad)" stroke-width="2.6"/>
+            <circle cx="14" cy="3.2" r="2.6" fill="url(#brandGrad)"/>
+          </svg>
+        </span>
+        <span class="brand-word">TrustLend</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#queue">Queue</a>
+        <a href="#how">How it Works</a>
+        <a id="explorer-link" href="#" target="_blank" rel="noopener">Explorer</a>
+      </nav>
+
+      <div class="navbar-right">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+        <button id="connect-btn" class="btn btn-gradient">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero wrap">
+      <div class="hero-copy fade-in">
+        <p class="eyebrow">BNB Smart Chain · Peer-to-Peer</p>
+        <h1>Decentralized<br><span class="grad-text">Peer-to-Peer Lending.</span></h1>
+        <p class="lede">
+          Create transparent lending pools where repayments automatically fund
+          the next borrower in line — no collateral, no credit score, no
+          middlemen. Every step happens on-chain.
+        </p>
+        <div class="hero-actions">
+          <a href="#dashboard" class="btn btn-gradient btn-lg">Launch App</a>
+          <a id="explorer-link-2" href="#" target="_blank" rel="noopener" class="btn btn-glass btn-lg">View Contract</a>
+        </div>
+      </div>
+
+      <div class="hero-art fade-in" style="animation-delay:.15s">
+        <svg viewBox="0 0 420 420" class="orbit-svg" role="img" aria-label="Blockchain network illustration">
+          <defs>
+            <linearGradient id="orbitGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--blue)"/>
+              <stop offset="1" stop-color="var(--purple)"/>
+            </linearGradient>
+            <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="var(--blue)" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="var(--purple)" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="210" cy="210" r="150" fill="url(#coreGlow)" opacity="0.35"/>
+          <g class="spin-slow">
+            <circle cx="210" cy="210" r="150" fill="none" stroke="url(#orbitGrad)" stroke-width="1.5" stroke-dasharray="2 10" opacity="0.6"/>
+          </g>
+          <g class="spin-reverse">
+            <circle cx="210" cy="210" r="105" fill="none" stroke="url(#orbitGrad)" stroke-width="1.5" stroke-dasharray="1 8" opacity="0.5"/>
+          </g>
+          <circle cx="210" cy="210" r="54" fill="url(#orbitGrad)"/>
+          <text x="210" y="205" text-anchor="middle" class="orbit-core-label">POOL</text>
+          <text x="210" y="222" text-anchor="middle" class="orbit-core-sub">on-chain</text>
+
+          <g class="spin-slow">
+            <g class="orbit-node" transform="translate(210,60)"><circle r="16"/><text y="4">A</text></g>
+            <g class="orbit-node" transform="translate(340,150)"><circle r="16"/><text y="4">B</text></g>
+            <g class="orbit-node" transform="translate(300,320)"><circle r="16"/><text y="4">C</text></g>
+            <g class="orbit-node" transform="translate(90,320)"><circle r="16"/><text y="4">D</text></g>
+            <g class="orbit-node" transform="translate(60,150)"><circle r="16"/><text y="4">E</text></g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- STATS / DASHBOARD -->
+    <section class="wrap" id="dashboard">
+      <div class="stats-grid">
+        <div class="glass-card stat-card fade-in">
+          <div class="stat-icon icon-blue">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h4.5a1.5 1.5 0 010 3H9m0-3h.5M9 13h6"/></svg>
+          </div>
+          <span class="stat-label">Total Pool</span>
+          <span id="stat-amount" class="stat-value">— BNB</span>
+          <span id="stat-round" class="stat-sub">no round funded yet</span>
+        </div>
+
+        <div class="glass-card stat-card fade-in" style="animation-delay:.05s">
+          <div class="stat-icon icon-purple">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20a5 5 0 00-10 0"/><circle cx="12" cy="8" r="4"/></svg>
+          </div>
+          <span class="stat-label">Borrowers</span>
+          <span id="stat-count" class="stat-value">—</span>
+          <span class="stat-sub">in this round's queue</span>
+        </div>
+
+        <div class="glass-card stat-card fade-in" style="animation-delay:.1s">
+          <div class="stat-icon icon-blue">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <span class="stat-label">Current Position</span>
+          <span id="stat-index" class="stat-value">—</span>
+          <span class="stat-sub">of the queue</span>
+        </div>
+
+        <div class="glass-card stat-card fade-in" style="animation-delay:.15s">
+          <div class="stat-icon icon-status">
+            <span id="status-dot" class="status-dot"></span>
+          </div>
+          <span class="stat-label">Contract Status</span>
+          <span id="stat-status" class="stat-value">—</span>
+          <a id="stat-contract" class="stat-sub stat-link" href="#" target="_blank" rel="noopener">—</a>
+        </div>
+      </div>
+
+      <!-- WALLET CARD -->
+      <div id="wallet-card" class="glass-card wallet-card fade-in" style="animation-delay:.2s">
+        <div class="wallet-row wallet-disconnected">
+          <div class="wallet-icon">👛</div>
+          <div>
+            <p class="wallet-title">No wallet connected</p>
+            <p class="wallet-sub">Connect any wallet to fund a round, add borrowers, or repay.</p>
+          </div>
+          <button class="btn btn-gradient wallet-connect-btn">Connect</button>
+        </div>
+        <div class="wallet-row wallet-connected" style="display:none;">
+          <div class="wallet-icon">👛</div>
+          <div class="wallet-info">
+            <p id="wallet-name" class="wallet-title">Wallet Connected</p>
+            <p id="wallet-addr" class="wallet-sub mono">—</p>
+          </div>
+          <div class="wallet-meta">
+            <div><span class="wallet-meta-label">Network</span><span id="wallet-network" class="wallet-meta-value">—</span></div>
+            <div><span class="wallet-meta-label">Balance</span><span id="wallet-balance" class="wallet-meta-value mono">—</span></div>
+          </div>
+          <button class="btn btn-glass btn-small wallet-disconnect-btn">Disconnect</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ACTION PANELS -->
+    <section class="wrap panels">
+      <div class="glass-card panel fade-in">
+        <h2>Start a Round <span class="tag">lender only</span></h2>
+        <p class="panel-hint">Fund the pool and set the borrower queue. Position 1 receives it immediately.</p>
+
+        <div class="float-field">
+          <textarea id="lend-borrowers" rows="3" placeholder=" "></textarea>
+          <label>Borrower addresses, one per line, in order</label>
+        </div>
+        <div class="float-field">
+          <input id="lend-amount" type="text" inputmode="decimal" placeholder=" " />
+          <label>Amount to lend (BNB)</label>
+        </div>
+        <button id="lend-btn" class="btn btn-gradient btn-block">Fund Pool</button>
+        <p id="lend-status" class="status"></p>
+      </div>
+
+      <div class="glass-card panel fade-in" style="animation-delay:.05s">
+        <h2>Add a Borrower <span class="tag">lender only</span></h2>
+        <p class="panel-hint">Append someone to the end of the current queue, mid-round.</p>
+
+        <div class="float-field">
+          <input id="add-borrower-address" type="text" placeholder=" " autocomplete="off" spellcheck="false" />
+          <label>Borrower address</label>
+        </div>
+        <button id="add-borrower-btn" class="btn btn-glass btn-block">Add to Queue</button>
+        <p id="add-borrower-status" class="status"></p>
+      </div>
+
+      <div class="glass-card panel fade-in" style="animation-delay:.1s">
+        <h2>Repay <span class="tag">borrower</span></h2>
+        <p class="panel-hint">
+          Send funds back to the contract's address first, then repay to pass
+          the balance to the next borrower in line.
+        </p>
+        <button id="repay-btn" class="btn btn-glass btn-block">Repay &amp; Advance Queue</button>
+        <p id="repay-status" class="status"></p>
+      </div>
+    </section>
+
+    <!-- QUEUE -->
+    <section class="wrap" id="queue">
+      <div class="section-header">
+        <h2>Queue Visualization</h2>
+        <button id="refresh-btn" class="btn btn-glass btn-small">Refresh</button>
+      </div>
+
+      <div class="queue-views">
+        <div class="glass-card ring-panel fade-in">
+          <p class="panel-eyebrow">Circle view</p>
+          <svg id="ring-svg" viewBox="0 0 360 360" role="img" aria-label="Loan queue ring diagram">
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--blue)"/>
+                <stop offset="1" stop-color="var(--purple)"/>
+              </linearGradient>
+            </defs>
+            <circle cx="180" cy="180" r="150" class="ring-track" fill="none" stroke-width="2"/>
+            <g id="ring-nodes"></g>
+            <g class="ring-center">
+              <circle cx="180" cy="180" r="54" fill="url(#ringGrad)"/>
+              <text x="180" y="174" text-anchor="middle" class="ring-center-label">LENDER</text>
+              <text id="ring-lender-addr" x="180" y="194" text-anchor="middle" class="ring-center-addr">not connected</text>
+            </g>
+          </svg>
+          <p class="ring-caption">Position <span id="ring-index">0</span> of <span id="ring-total">0</span> is currently funded</p>
+        </div>
+
+        <div class="glass-card timeline-panel fade-in" style="animation-delay:.05s">
+          <p class="panel-eyebrow">Timeline view</p>
+          <ol id="timeline-list" class="timeline-list">
+            <li class="queue-empty">Connect a wallet to load the queue.</li>
+          </ol>
+        </div>
+      </div>
+
+      <p class="section-sub">Borrower cards</p>
+      <div id="borrower-cards" class="borrower-cards">
+        <div class="glass-card borrower-card empty-card">No round funded yet.</div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="wrap how" id="how">
+      <h2>How a Round Moves</h2>
+      <ol class="how-steps">
+        <li class="glass-card"><span class="step-no">01</span><div><strong>Lender funds the pool</strong><p>Sets the ordered borrower queue and sends BNB. Position 1 receives it immediately.</p></div></li>
+        <li class="glass-card"><span class="step-no">02</span><div><strong>Borrower uses the funds</strong><p>For education, business, or healthcare — whatever they described off-chain.</p></div></li>
+        <li class="glass-card"><span class="step-no">03</span><div><strong>Borrower repays</strong><p>They send funds back to the contract, then call repay to forward the balance.</p></div></li>
+        <li class="glass-card"><span class="step-no">04</span><div><strong>Next borrower is funded</strong><p>The queue advances automatically, repeating until the last borrower repays.</p></div></li>
+        <li class="glass-card"><span class="step-no">05</span><div><strong>Balance returns to lender</strong><p>Once the queue is exhausted, repayments flow back to whoever started the round.</p></div></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>TrustLend runs entirely on-chain — this page only reads and writes to the contract above.</span>
+      <span id="footer-network" class="mono"></span>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script type="module" src="wallet.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
